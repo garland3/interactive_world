@@ -1,0 +1,4 @@
+*.sqlite3
+uploaded_data\images\
+*.png
+__pycache__

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<link rel="stylesheet" href="{{ data['css'] }}" type="text/css" />
+<script type="text/javascript" src={{ data['js'] }}></script>
+<html>
+   <head>   
+      <style>
+         #mycanvas{border:1px solid red;}
+      </style>
+   </head>
+   
+   <body>
+      <canvas id = "mycanvas" width = "500" height = "500"></canvas>
+   </body>
+
+
+</html>
+<script>
+    var imgs = {{ data['imgs']|tojson  }};
+    Start();
+    // MoveImgs(imrulrarray) 
+// set_canvas_to_full_screen();
+// moveRectangle();
+</script>
