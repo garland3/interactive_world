@@ -25,10 +25,15 @@ app.add_url_rule('/worldimg/<int:post_id>/', view_func=GetImageForWorld.as_view(
 dbwrapper.setdb(app)
 dbwrapper.setroot(app.root_path)
 
+@app.route('/', methods = ['GET'])
+def home(name=None):
+    result= "hi"
+    return render_template('index.html', result=result)
 
 @app.route('/upload/', methods = ['GET','POST'])
 def upload(name=None):
     result = "Ready for Upload "
+    print(f"Running the upload function with request obj method {request.method}")
     if request.method == "POST":
         result = ProcessUpload(request)
     return render_template('upload.html', result=result)
@@ -55,5 +60,5 @@ def ProcessUpload(request):
 
 
 if __name__ == "__main__":
-    # SetupDb()
+    dbwrapper.SetupDb()
     app.run()

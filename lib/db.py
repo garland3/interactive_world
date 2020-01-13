@@ -6,6 +6,8 @@ from sqlalchemy import Column, Integer, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql import func
 
+from pathlib import Path
+
 db = SQLAlchemy()
 # https://stackoverflow.com/questions/9692962/flask-sqlalchemy-import-context-issue
 
@@ -22,8 +24,9 @@ class dbwrapper():
     @staticmethod
     def setroot(root):
         dbwrapper.rootpath = root
-
-    def SetupDb(self):
+        
+    @staticmethod
+    def SetupDb():
         p= Path("./maindb.sqlite3")
         if p.exists() is False:
             db.create_all()
